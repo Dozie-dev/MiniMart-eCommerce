@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minimart_app/pages/customappbar2.dart';
+import 'package:minimart_app/utils/colors.dart';
+import 'package:minimart_app/view/app_bars/customappbar2.dart';
 
-class CartPage extends StatelessWidget {
-  const CartPage({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf0f0f0),
+      backgroundColor: AppColors.secondaryBackground,
       appBar: AppBar2(),
       body: Column(
         children: [
@@ -27,7 +28,7 @@ class CartPage extends StatelessWidget {
                 ),
 
                 Text(
-                  'Your Cart',
+                  'Profile',
                   style: GoogleFonts.ibmPlexSans(
                     textStyle: TextStyle(
                       color: Colors.black,
@@ -37,6 +38,17 @@ class CartPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+
+          Text(
+            'COMING SOON',
+            style: GoogleFonts.ibmPlexSans(
+              textStyle: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: AppColors.highlighticon,
+              ),
             ),
           ),
         ],

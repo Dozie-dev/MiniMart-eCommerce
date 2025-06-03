@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minimart_app/pages/customappbar2.dart';
+import 'package:minimart_app/view/app_bars/customappbar2.dart';
 
-class ProductsDetails extends StatelessWidget {
-  const ProductsDetails({super.key});
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ProductsDetails extends StatelessWidget {
                 ),
 
                 Text(
-                  'Go Back',
+                  'Your Cart',
                   style: GoogleFonts.ibmPlexSans(
                     textStyle: TextStyle(
                       color: Colors.black,

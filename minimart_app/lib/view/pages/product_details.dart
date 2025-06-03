@@ -1,23 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minimart_app/pages/customappbar.dart';
+import 'package:minimart_app/view/app_bars/customappbar2.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class ProductsDetails extends StatelessWidget {
+  const ProductsDetails({super.key});
 
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFf0f0f0),
-
-      /// AppBar --
-      appBar: CustomAppBar(),
-
+      appBar: AppBar2(),
       body: Column(
         children: [
           Container(
@@ -35,7 +27,7 @@ class _HomepageState extends State<Homepage> {
                 ),
 
                 Text(
-                  'Technology',
+                  'Go Back',
                   style: GoogleFonts.ibmPlexSans(
                     textStyle: TextStyle(
                       color: Colors.black,
@@ -45,20 +37,6 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ],
-            ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(15),
-            child: Text(
-              'Smartphones, Laptops & Assecories',
-              style: GoogleFonts.ibmPlexMono(
-                textStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
             ),
           ),
         ],

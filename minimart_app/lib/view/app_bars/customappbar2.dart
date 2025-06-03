@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/utils/app_icons.dart';
+import 'package:minimart_app/utils/app_images.dart';
+import 'package:minimart_app/utils/colors.dart';
 
 class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
   const AppBar2({super.key});
@@ -11,7 +14,7 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.mainBackground,
         border: Border(
           bottom: BorderSide(
             color: Colors.grey, // Border color
@@ -21,8 +24,8 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: SafeArea(
         child: AppBar(
-          backgroundColor: Colors.white,
-          leading: Image.asset('assets/images/logo.png', height: 70),
+          backgroundColor: AppColors.mainBackground,
+          leading: Image.asset(AppImages.logo, height: 70),
 
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,9 +34,9 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
                 'DELIVERY ADDRESS',
                 style: GoogleFonts.ibmPlexSans(
                   textStyle: TextStyle(
-                    fontSize: 15,
+                    fontSize: 10,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF334155),
+                    color: AppColors.textColor,
                   ),
                 ),
               ),
@@ -42,9 +45,9 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
                 'Umuezike Road, Oyo State',
                 style: GoogleFonts.ibmPlexSans(
                   textStyle: TextStyle(
-                    fontSize: 17,
+                    fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF334155),
+                    color: AppColors.textColor,
                   ),
                 ),
               ),
@@ -53,11 +56,7 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
           centerTitle: true,
           actions: [
             IconButton(
-              icon: Image.asset(
-                'assets/icons/notification.png',
-                width: 24,
-                height: 24,
-              ),
+              icon: Image.asset(AppIcons.notification, width: 24, height: 24),
               onPressed: () {},
             ),
           ],

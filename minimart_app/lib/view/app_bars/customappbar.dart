@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/utils/app_icons.dart';
+import 'package:minimart_app/utils/app_images.dart';
+import 'package:minimart_app/utils/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -11,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.mainBackground,
       elevation: 0,
       flexibleSpace: SafeArea(
         child: Container(
@@ -27,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 /// First row
                 Row(
                   children: [
-                    Image.asset('assets/images/logo.png', height: 60),
+                    Image.asset(AppImages.logo, height: 60),
 
                     SizedBox(width: 8),
 
@@ -39,9 +42,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             'DELIVERY ADDRESS',
                             style: GoogleFonts.ibmPlexSans(
                               textStyle: TextStyle(
-                                fontSize: 15,
+                                fontSize: 10,
                                 fontWeight: FontWeight.w600,
-                                color: Color(0xFF334155),
+                                color: AppColors.textColor,
                               ),
                             ),
                           ),
@@ -52,9 +55,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                             'Umuezike Road, Oyo State',
                             style: GoogleFonts.ibmPlexSans(
                               textStyle: TextStyle(
-                                fontSize: 17,
+                                fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: Color(0xFF334155),
+                                color: AppColors.textColor,
                               ),
                             ),
                           ),
@@ -62,23 +65,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    Image.asset('assets/icons/notification.png', height: 24),
+                    Image.asset(AppIcons.notification, height: 24),
                   ],
                 ),
                 const SizedBox(height: 2),
 
                 /// TextField
-                TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search...',
-                    prefixIcon: Icon(Icons.search),
-                    contentPadding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 0,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: Colors.black),
+                SizedBox(
+                  height: 36,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search...',
+                      prefixIcon: Image.asset(AppIcons.search),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 0,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
                     ),
                   ),
                 ),
