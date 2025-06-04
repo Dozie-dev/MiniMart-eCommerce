@@ -17,7 +17,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf0f0f0),
+      backgroundColor: AppColors.secondaryBackground,
 
       /// AppBar --
       appBar: CustomAppBar(),
@@ -34,7 +34,7 @@ class _HomepageState extends State<Homepage> {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.back(),
                   icon: Icon(Icons.arrow_back_ios_rounded, size: 15),
                 ),
 
@@ -55,12 +55,12 @@ class _HomepageState extends State<Homepage> {
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: Text(
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       'Smartphones, Laptops & Assecories',
                       style: GoogleFonts.ibmPlexMono(
                         textStyle: TextStyle(
@@ -70,66 +70,75 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                     ),
-                  ),
-                  Obx(
-                    () => SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.7,
-                      child: GridView.builder(
+                    SizedBox(height: 10),
+                    Obx(
+                      () => GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
                         itemCount: productsController.productsList.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisExtent: 234,
                           mainAxisSpacing: 10,
-                          crossAxisSpacing: 5,
+                          crossAxisSpacing: 15,
                         ),
                         itemBuilder: (context, index) {
                           final products =
                               productsController.productsList[index];
-                          return Column(
-                            children: [
-                              Container(
-                                width: 162,
-                                height: 162,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8.62),
+                          return GestureDetector(
+                            onTap: () {
+                              Get.toNamed(
+                                '/product-details',
+                                arguments: products,
+                              );
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: 162,
+                                  height: 162,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8.62),
+                                  ),
+                                  child: Image.asset(products.image),
                                 ),
-                                child: Image.asset(products.image),
-                              ),
-                              SizedBox(height: 3),
-                              Text(
-                                products.name,
-                                style: GoogleFonts.ibmPlexSans(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: AppColors.normalcolor,
+                                SizedBox(height: 3),
+                                Text(
+                                  products.name,
+                                  style: GoogleFonts.ibmPlexSans(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: AppColors.normalcolor,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                products.description.join(" | "),
-                                style: GoogleFonts.ibmPlexSans(
-                                  fontSize: 14,
-                                  color: AppColors.normalcolor,
-                                  fontWeight: FontWeight.w400,
+                                Text(
+                                  "${products.ram}|${products.colour}",
+                                  style: GoogleFonts.ibmPlexSans(
+                                    fontSize: 14,
+                                    color: AppColors.normalcolor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 3),
-                              Text(
-                                '\$${products.price.toStringAsFixed(2)}',
-                                style: GoogleFonts.ibmPlexSans(
-                                  color: AppColors.normalcolor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
+                                SizedBox(height: 3),
+                                Text(
+                                  '\$${products.price.toStringAsFixed(2)}',
+                                  style: GoogleFonts.ibmPlexSans(
+                                    color: AppColors.normalcolor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           );
                         },
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

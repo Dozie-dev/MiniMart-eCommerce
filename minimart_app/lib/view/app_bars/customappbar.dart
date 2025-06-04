@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimart_app/utils/app_icons.dart';
 import 'package:minimart_app/utils/app_images.dart';
@@ -65,7 +66,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    Image.asset(AppIcons.notification, height: 24),
+                    IconButton(
+                      icon: Image.asset(
+                        AppIcons.notification,
+                        width: 24,
+                        height: 24,
+                      ),
+                      onPressed: () {
+                        Get.toNamed('/notifications');
+                      },
+                    ),
                   ],
                 ),
                 const SizedBox(height: 2),
@@ -81,9 +91,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         horizontal: 20,
                         vertical: 0,
                       ),
-                      border: OutlineInputBorder(
+                      focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: BorderSide(color: AppColors.highlighticon),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.normalcolor),
                       ),
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimart_app/utils/app_icons.dart';
 import 'package:minimart_app/utils/app_images.dart';
@@ -57,7 +58,9 @@ class AppBar2 extends StatelessWidget implements PreferredSizeWidget {
           actions: [
             IconButton(
               icon: Image.asset(AppIcons.notification, width: 24, height: 24),
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed('/notifications');
+              },
             ),
           ],
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/utils/colors.dart';
 import 'package:minimart_app/view/app_bars/customappbar2.dart';
 
 class CartPage extends StatelessWidget {
@@ -8,7 +10,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFf0f0f0),
+      backgroundColor: AppColors.secondaryBackground,
       appBar: AppBar2(),
       body: Column(
         children: [
@@ -22,7 +24,7 @@ class CartPage extends StatelessWidget {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.back(),
                   icon: Icon(Icons.arrow_back_ios_rounded, size: 15),
                 ),
 

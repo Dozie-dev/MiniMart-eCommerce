@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minimart_app/utils/colors.dart';
 import 'package:minimart_app/view/app_bars/customappbar2.dart';
 
-class FavoritesPage extends StatelessWidget {
-  const FavoritesPage({super.key});
+class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +24,12 @@ class FavoritesPage extends StatelessWidget {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => Get.back(),
                   icon: Icon(Icons.arrow_back_ios_rounded, size: 15),
                 ),
 
                 Text(
-                  'Favourites',
+                  'Notifications',
                   style: GoogleFonts.ibmPlexSans(
                     textStyle: TextStyle(
                       color: Colors.black,
@@ -42,12 +43,12 @@ class FavoritesPage extends StatelessWidget {
           ),
 
           Text(
-            'COMING SOON',
+            'NO NOTIFICATIONS',
             style: GoogleFonts.ibmPlexSans(
               textStyle: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: AppColors.highlighticon,
+                color: AppColors.redcolor,
               ),
             ),
           ),

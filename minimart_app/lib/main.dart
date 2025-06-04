@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:minimart_app/view/nav_bar/btmnav_bar.dart';
 import 'package:get/get.dart';
+import 'package:minimart_app/view/pages/notifications.dart';
+import 'package:minimart_app/view/pages/product_details.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(debugShowCheckedModeBanner: false, home: BtmnavBar());
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BtmnavBar(),
+      getPages: [
+        GetPage(name: '/notifications', page: () => const NotificationsPage()),
+        GetPage(name: '/product-details', page: () => ProductsDetails()),
+      ],
+    );
   }
 }

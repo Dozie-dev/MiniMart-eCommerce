@@ -1,13 +1,18 @@
+import 'package:get/get.dart';
+
 class ProductModel {
   final String image;
   final String name;
   final double price;
-  final List<String> description;
+  final String ram;
+  final String colour;
+  RxBool isFavorite = false.obs;
 
   ProductModel({
     required this.image,
     required this.name,
     required this.price,
-    required this.description,
+    required this.ram,
+    required this.colour,
   });
 }

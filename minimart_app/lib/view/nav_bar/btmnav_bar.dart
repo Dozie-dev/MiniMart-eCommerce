@@ -39,70 +39,71 @@ class BtmnavBar extends StatelessWidget {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
           ),
-          child: BottomNavigationBar(
-            currentIndex: btmnavController.currentIndex.value,
-            onTap: btmnavController.changeTabIndex,
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            elevation: 8,
-            selectedFontSize: 14,
-            unselectedFontSize: 14,
-            selectedItemColor: AppColors.highlighticon,
-            unselectedItemColor: AppColors.normalicon,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            items: List.generate(icons.length, (index) {
-              final isSelected = btmnavController.currentIndex.value == index;
+          child: SizedBox(
+            height: 90,
+            child: BottomNavigationBar(
+              currentIndex: btmnavController.currentIndex.value,
+              onTap: btmnavController.changeTabIndex,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Colors.white,
+              elevation: 8,
+              selectedFontSize: 14,
+              unselectedFontSize: 14,
+              selectedItemColor: AppColors.highlighticon,
+              unselectedItemColor: AppColors.normalicon,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              items: List.generate(icons.length, (index) {
+                final isSelected = btmnavController.currentIndex.value == index;
 
-              return BottomNavigationBarItem(
-                label: '',
-                icon: Column(
-                  children: [
-                    // Top indicator
-                    if (isSelected)
-                      Container(
-                        height: 3,
-                        width: 50,
-                        margin: const EdgeInsets.only(bottom: 4),
-                        decoration: BoxDecoration(
-                          color: AppColors.highlighticon,
-                          borderRadius: BorderRadius.circular(2),
+                return BottomNavigationBarItem(
+                  label: '',
+                  icon: Column(
+                    children: [
+                      // Top indicator
+                      if (isSelected)
+                        Container(
+                          alignment: Alignment.center,
+                          height: 32,
+                          width: 56,
+
+                          decoration: BoxDecoration(
+                            color: AppColors.highlighticon,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Image.asset(
+                            icons[index],
+                            width: 24,
+                            height: 24,
+                            color: AppColors.whitecolor,
+                          ),
+                        )
+                      else
+                        Image.asset(
+                          icons[index],
+                          width: 24,
+                          height: 24,
+                          color: AppColors.normalicon,
                         ),
-                      )
-                    else
-                      const SizedBox(height: 7),
 
-                    /// NavBar Icon
-                    Image.asset(
-                      icons[index],
-                      width: 24,
-                      height: 24,
-                      color:
-                          isSelected
-                              ? AppColors.highlighticon
-                              : AppColors.normalicon,
-                    ),
+                      const SizedBox(height: 4),
 
-                    const SizedBox(height: 4),
-
-                    // Label
-                    Text(
-                      labels[index],
-                      style: GoogleFonts.ibmPlexSans(
-                        textStyle: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color:
-                              isSelected
-                                  ? AppColors.highlighticon
-                                  : AppColors.normalicon,
+                      // Label
+                      Text(
+                        labels[index],
+                        style: GoogleFonts.ibmPlexSans(
+                          textStyle: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.normalicon,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            }),
+                    ],
+                  ),
+                );
+              }),
+            ),
           ),
         ),
       ),
