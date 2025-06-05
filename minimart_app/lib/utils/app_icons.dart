@@ -7,4 +7,5 @@ class AppIcons {
   static const String search = 'assets/icons/search.png';
   static const String clickedfav = 'assets/icons/clickedfav.png';
   static const String unclickedfav = 'assets/icons/unclickedfav.png';
+  static const String delete = 'assets/icons/delete.png';
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/controllers/btmnav_controller.dart';
+import 'package:minimart_app/controllers/cart_controller.dart';
 import 'package:minimart_app/model/product_model.dart';
 import 'package:minimart_app/utils/app_icons.dart';
 import 'package:minimart_app/utils/colors.dart';
@@ -9,6 +11,8 @@ import 'package:minimart_app/view/app_bars/customappbar2.dart';
 class ProductsDetails extends StatelessWidget {
   ProductsDetails({super.key});
   final ProductModel products = Get.arguments;
+  final CartController cartController = Get.find<CartController>();
+  final navController = Get.find<BtmnavController>();
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +151,11 @@ class ProductsDetails extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                // final CartController cartController =
+                //     Get.find<CartController>();
+                cartController.addCartItem(products);
+              },
               child: Container(
                 height: 40,
                 width: 343,

@@ -37,6 +37,7 @@ dependencies:
   flutter_native_splash: ^2.4.6
   get: ^4.7.2
   google_fonts: ^6.2.1
+  flutter_launcher_icons: ^0.14.3
 
 flutter_native_splash:
     android: true
@@ -49,7 +50,10 @@ flutter_native_splash:
       color: "#FFFFFF"
       image: "assets/images/splash2.png"
       
-      
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
 
 
 dev_dependencies:
