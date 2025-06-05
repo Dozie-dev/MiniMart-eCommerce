@@ -98,3 +98,12 @@ A mobile App Project for Alphatwelve Task
 - **Responsive Design**: Clean, modern UI with smooth navigation
 - **State Persistence**: Cart state maintained across screens
 - **Interactive Elements**: Quantity controls, delete actions, and checkout flow
+
+
+# 📞 Contact
+
+Amaechi Promise Chiedozie - promiseamaechi16@gmail.com
+
+Project Link: https://github.com/Dozie-dev/MiniMart-eCommerce
+
+---
