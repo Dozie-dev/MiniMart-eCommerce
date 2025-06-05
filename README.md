@@ -51,8 +51,11 @@ A mobile App Project for Alphatwelve Task
    ## 🎯 Instructions
 
  -**Browse Products**: Available products are displayed on the home screen 
+ 
  -**Product Details**: Tapping any product navigates to the details page to view product details
+ 
  -**Add to Cart**: The "Add to cart" button to add items to cart
+ 
  -**Manage Cart**: The cart screen contains:
    - Added cart items
    - Adjust quantities using +/- buttons
