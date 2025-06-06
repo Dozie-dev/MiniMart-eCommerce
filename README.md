@@ -114,7 +114,18 @@ lib/
 
 
 # 📱 Screenshots
-
+## Home Page
+![App screenshot](./assets/screenshot/homepage.jpg)
+## Product Details Page
+![App screenshot](./assets/screenshot/productdetails.jpg)
+## Favorites Page
+![App screenshot](./assets/screenshots/favoritespage.jpg)
+## Profile Page
+![App screenshot](./assets/screenshots/profilepage.jpg)
+## Cart Operations Page
+![App screenshot](./assets/screenshot/cartnoitems.jpg)
+![App screenshot](./assets/screenshot/cartitems.jpg)
+![App screenshot](./assets/screenshot/checkout.jpg)
 
 # ✨ Features
 
