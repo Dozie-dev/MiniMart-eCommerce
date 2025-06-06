@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/components/icon_badge.dart';
 import 'package:minimart_app/controllers/btmnav_controller.dart';
 import 'package:minimart_app/utils/app_icons.dart';
 import 'package:minimart_app/utils/colors.dart';
@@ -56,38 +57,47 @@ class BtmnavBar extends StatelessWidget {
               items: List.generate(icons.length, (index) {
                 final isSelected = btmnavController.currentIndex.value == index;
 
+                Widget iconWidget;
+
+                if (index == 1) {
+                  // Called the carticon badge
+                  iconWidget = CartBadgeIcon(
+                    assetPath: icons[index],
+                    isSelected: isSelected,
+                  );
+                } else {
+                  // Normal icons
+                  iconWidget =
+                      isSelected
+                          ? Container(
+                            alignment: Alignment.center,
+                            height: 32,
+                            width: 56,
+                            decoration: BoxDecoration(
+                              color: AppColors.highlighticon,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Image.asset(
+                              icons[index],
+                              width: 24,
+                              height: 24,
+                              color: AppColors.whitecolor,
+                            ),
+                          )
+                          : Image.asset(
+                            icons[index],
+                            width: 24,
+                            height: 24,
+                            color: AppColors.normalicon,
+                          );
+                }
+
                 return BottomNavigationBarItem(
                   label: '',
                   icon: Column(
                     children: [
-                      // Top indicator
-                      if (isSelected)
-                        Container(
-                          alignment: Alignment.center,
-                          height: 32,
-                          width: 56,
-
-                          decoration: BoxDecoration(
-                            color: AppColors.highlighticon,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Image.asset(
-                            icons[index],
-                            width: 24,
-                            height: 24,
-                            color: AppColors.whitecolor,
-                          ),
-                        )
-                      else
-                        Image.asset(
-                          icons[index],
-                          width: 24,
-                          height: 24,
-                          color: AppColors.normalicon,
-                        ),
-
+                      iconWidget,
                       const SizedBox(height: 4),
-
                       // Label
                       Text(
                         labels[index],

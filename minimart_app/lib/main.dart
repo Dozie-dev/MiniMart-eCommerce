@@ -1,8 +1,10 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:minimart_app/controllers/cart_controller.dart';
 import 'package:minimart_app/view/nav_bar/btmnav_bar.dart';
 import 'package:get/get.dart';
 import 'package:minimart_app/view/pages/cart_page.dart';
+import 'package:minimart_app/view/pages/homepage.dart';
 import 'package:minimart_app/view/pages/notifications.dart';
 import 'package:minimart_app/view/pages/product_details.dart';
 
@@ -23,9 +25,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      builder: BotToastInit(),
+      navigatorObservers: [BotToastNavigatorObserver()],
       home: BtmnavBar(),
       getPages: [
         GetPage(name: '/notifications', page: () => const NotificationsPage()),
+        GetPage(name: '/home-page', page: () => const Homepage()),
         GetPage(name: '/product-details', page: () => ProductsDetails()),
         GetPage(name: '/cart', page: () => CartPage()),
       ],

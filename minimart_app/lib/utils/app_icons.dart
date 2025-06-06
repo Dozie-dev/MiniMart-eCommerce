@@ -8,4 +8,6 @@ class AppIcons {
   static const String clickedfav = 'assets/icons/clickedfav.png';
   static const String unclickedfav = 'assets/icons/unclickedfav.png';
   static const String delete = 'assets/icons/delete.png';
+  static const String close = 'assets/icons/close.png';
+  static const String checkcircle = 'assets/icons/checkcircle.png';
 }

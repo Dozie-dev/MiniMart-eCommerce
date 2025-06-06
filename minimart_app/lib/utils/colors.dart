@@ -13,7 +13,7 @@ class AppColors {
   static const Color greytext = Color(0xFF334155);
   static const Color greenColor = Color(0xFF10B981);
   static const Color normalicon = Colors.black;
-  static const Color normalcolor = Colors.black;
+  static const Color normalcolor = Colors.black; 
   static const Color redcolor = Colors.red;
   static const Color whitecolor = Colors.white;
 }

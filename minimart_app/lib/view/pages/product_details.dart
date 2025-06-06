@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/components/custom_toast.dart';
 import 'package:minimart_app/controllers/btmnav_controller.dart';
 import 'package:minimart_app/controllers/cart_controller.dart';
 import 'package:minimart_app/model/product_model.dart';
@@ -152,9 +153,8 @@ class ProductsDetails extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                // final CartController cartController =
-                //     Get.find<CartController>();
                 cartController.addCartItem(products);
+                CustomToast.showSuccess();
               },
               child: Container(
                 height: 40,

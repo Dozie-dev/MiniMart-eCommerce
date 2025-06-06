@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minimart_app/components/alert_dialogue.dart';
 import 'package:minimart_app/controllers/cart_controller.dart';
 import 'package:minimart_app/utils/app_icons.dart';
 import 'package:minimart_app/utils/colors.dart';
@@ -45,213 +46,227 @@ class CartPage extends StatelessWidget {
             ),
           ),
 
-          SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-            child: Column(
-              children: [
-                Obx(() {
-                  final items = cartController.cartItems.entries.toList();
+          Expanded(
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              child: Column(
+                children: [
+                  Obx(() {
+                    final items = cartController.cartItems.entries.toList();
 
-                  if (items.isEmpty) {
-                    return Center(
-                      child: Text(
-                        "Your cart is empty.",
-                        style: GoogleFonts.ibmPlexSans(
-                          textStyle: TextStyle(
-                            color: AppColors.highlighticon,
-                            fontSize: 30,
-                            fontWeight: FontWeight.w700,
+                    if (items.isEmpty) {
+                      return Center(
+                        child: Text(
+                          "Your cart is empty.",
+                          style: GoogleFonts.ibmPlexSans(
+                            textStyle: TextStyle(
+                              color: AppColors.highlighticon,
+                              fontSize: 30,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  }
+                      );
+                    }
 
-                  return Column(
-                    children: [
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: items.length,
-                        itemBuilder: (context, index) {
-                          final products = items[index].key;
-                          final quantity = items[index].value;
+                    return Column(
+                      children: [
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: items.length,
+                          itemBuilder: (context, index) {
+                            final products = items[index].key;
+                            final quantity = items[index].value;
 
-                          return Container(
-                            width: double.infinity,
-                            height: 132,
-                            padding: EdgeInsets.all(10),
-                            margin: EdgeInsets.only(bottom: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: AppColors.containerBackground,
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Image.asset(
-                                    products.image,
-                                    width: 100,
-                                    height: 100,
+                            return Container(
+                              width: double.infinity,
+                              height: 132,
+                              padding: EdgeInsets.all(10),
+                              margin: EdgeInsets.only(bottom: 10),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: AppColors.containerBackground,
+                              ),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Image.asset(
+                                      products.image,
+                                      width: 100,
+                                      height: 100,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: 10),
-                                Expanded(
-                                  flex: 2,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "${products.name} ${products.ram}|${products.colour}",
-                                        style: GoogleFonts.ibmPlexSans(
-                                          textStyle: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 12,
-                                            height: (20 / 12),
-                                            color: AppColors.textColor,
+                                  SizedBox(height: 10),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${products.name} ${products.ram}|${products.colour}",
+                                          style: GoogleFonts.ibmPlexSans(
+                                            textStyle: TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12,
+                                              height: (20 / 12),
+                                              color: AppColors.textColor,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(height: 3),
-                                      Text(
-                                        "\$${products.price.toStringAsFixed(2)}",
-                                        style: GoogleFonts.ibmPlexSans(
-                                          textStyle: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 17,
-                                            height: (32 / 17),
-                                            color: AppColors.textColor,
+                                        SizedBox(height: 3),
+                                        Text(
+                                          "\$${products.price.toStringAsFixed(2)}",
+                                          style: GoogleFonts.ibmPlexSans(
+                                            textStyle: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 17,
+                                              height: (32 / 17),
+                                              color: AppColors.textColor,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(height: 3),
-                                      Text(
-                                        "In stock",
-                                        style: GoogleFonts.ibmPlexSans(
-                                          textStyle: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 12,
-                                            height: (16 / 12),
-                                            color: AppColors.greenColor,
+                                        SizedBox(height: 3),
+                                        Text(
+                                          "In stock",
+                                          style: GoogleFonts.ibmPlexSans(
+                                            textStyle: TextStyle(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12,
+                                              height: (16 / 12),
+                                              color: AppColors.greenColor,
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(height: 3),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              GestureDetector(
-                                                onTap:
-                                                    () => cartController
-                                                        .removeCartItem(
-                                                          products,
+                                        SizedBox(height: 3),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                GestureDetector(
+                                                  onTap:
+                                                      () => cartController
+                                                          .removeCartItem(
+                                                            products,
+                                                          ),
+
+                                                  child: CircleAvatar(
+                                                    radius: 18,
+                                                    backgroundColor:
+                                                        AppColors.greyiconbg,
+                                                    child: Center(
+                                                      child: Icon(
+                                                        Icons.remove,
+                                                        color:
+                                                            AppColors.greyicon,
+                                                        size: 18,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                SizedBox(width: 25),
+                                                Text(
+                                                  quantity.toString(),
+                                                  style:
+                                                      GoogleFonts.ibmPlexSans(
+                                                        textStyle: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          fontSize: 12,
+                                                          height: (20 / 12),
+                                                          color:
+                                                              AppColors
+                                                                  .greytext,
                                                         ),
-
-                                                child: CircleAvatar(
-                                                  radius: 18,
-                                                  backgroundColor:
-                                                      AppColors.greyiconbg,
-                                                  child: Center(
-                                                    child: Icon(
-                                                      Icons.remove,
-                                                      color: AppColors.greyicon,
-                                                      size: 18,
+                                                      ),
+                                                ),
+                                                SizedBox(width: 25),
+                                                GestureDetector(
+                                                  onTap:
+                                                      () => cartController
+                                                          .addCartItem(
+                                                            products,
+                                                          ),
+                                                  child: CircleAvatar(
+                                                    radius: 18,
+                                                    backgroundColor:
+                                                        AppColors.whitecolor,
+                                                    child: Center(
+                                                      child: Icon(
+                                                        Icons.add,
+                                                        color:
+                                                            AppColors.greyicon,
+                                                        size: 18,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(width: 25),
-                                              Text(
-                                                quantity.toString(),
-                                                style: GoogleFonts.ibmPlexSans(
-                                                  textStyle: TextStyle(
-                                                    fontWeight: FontWeight.w400,
-                                                    fontSize: 12,
-                                                    height: (20 / 12),
-                                                    color: AppColors.greytext,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(width: 25),
-                                              GestureDetector(
-                                                onTap:
-                                                    () => cartController
-                                                        .addCartItem(products),
-                                                child: CircleAvatar(
-                                                  radius: 18,
-                                                  backgroundColor:
-                                                      AppColors.whitecolor,
-                                                  child: Center(
-                                                    child: Icon(
-                                                      Icons.add,
-                                                      color: AppColors.greyicon,
-                                                      size: 18,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                              ],
+                                            ),
 
-                                          GestureDetector(
-                                            onTap:
-                                                () => cartController
-                                                    .deleteCartItem(products),
-                                            child: CircleAvatar(
-                                              radius: 18,
-                                              backgroundColor:
-                                                  AppColors.whitecolor,
-                                              child: Center(
-                                                child: Image.asset(
-                                                  AppIcons.delete,
-                                                  width: 19,
-                                                  height: 19,
+                                            GestureDetector(
+                                              onTap:
+                                                  () => cartController
+                                                      .deleteCartItem(products),
+                                              child: CircleAvatar(
+                                                radius: 18,
+                                                backgroundColor:
+                                                    AppColors.whitecolor,
+                                                child: Center(
+                                                  child: Image.asset(
+                                                    AppIcons.delete,
+                                                    width: 19,
+                                                    height: 19,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                        SizedBox(height: 12),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Order Info',
+                              style: GoogleFonts.ibmPlexSans(
+                                textStyle: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.normalcolor,
                                 ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                      SizedBox(height: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Order Info',
-                            style: GoogleFonts.ibmPlexSans(
-                              textStyle: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.normalcolor,
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 10),
-                          priceRow('Subtotal', cartController.subtotal),
-                          SizedBox(height: 10),
-                          priceRow('Shipping', cartController.deliveryFee),
-                          SizedBox(height: 10),
-                          priceRow('Total', cartController.total, isBold: true),
-                        ],
-                      ),
-                    ],
-                  );
-                }),
-              ],
+                            SizedBox(height: 10),
+                            priceRow('Subtotal', cartController.subtotal),
+                            SizedBox(height: 10),
+                            priceRow('Shipping', cartController.deliveryFee),
+                            SizedBox(height: 10),
+                            priceRow(
+                              'Total',
+                              cartController.total,
+                              isBold: true,
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  }),
+                ],
+              ),
             ),
           ),
         ],
@@ -267,7 +282,12 @@ class CartPage extends StatelessWidget {
           child: Column(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  if (cartController.cartItems.isNotEmpty) {
+                    Get.dialog(const PopupDialogue());
+                    cartController.clearCart();
+                  }
+                },
                 child: Container(
                   height: 40,
                   width: 343,
