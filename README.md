@@ -109,7 +109,7 @@ lib/
 │       ├── notifications.dart       # Notifications Page
 │       ├── product_details.dart     # Products Page
 │       └── profile_page.dart        # Profile Page
-
+```
 
 
 
