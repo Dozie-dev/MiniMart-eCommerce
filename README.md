@@ -115,17 +115,17 @@ lib/
 
 # 📱 Screenshots
 ## Home Page
-![HomePage](\assets\screenshot\homepage.jpg)
+![HomePage](minimart_app/assets/screenshot/homepage.jpg)
 ## Product Details Page
-![Project Details](/assets/screenshot/productdetails.jpg)
+![Project Details](minimart_app/assets/screenshot/productdetails.jpg)
 ## Favorites Page
-![Favorites Page](/assets/screenshot/favoritespage.jpg)
+![Favorites Page](minimart_app/assets/screenshot/favoritespage.jpg)
 ## Profile Page
-![Profile Page](/assets/screenshot/profilepage.jpg)
+![Profile Page](minimart_app/assets/screenshot/profilepage.jpg)
 ## Cart Operations Page
-![Cart Screen](/assets/screenshot/cartnoitems.jpg)
-![Cart Screen](/assets/screenshot/cartitems.jpg)
-![Cart Screen](/assets/screenshot/checkout.jpg)
+![Cart Screen](minimart_app/assets/screenshot/cartnoitems.jpg)
+![Cart Screen](minimart_app/assets/screenshot/cartitems.jpg)
+![Cart Screen](minimart_app/assets/screenshot/checkout.jpg)
 
 # ✨ Features
 
