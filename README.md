@@ -72,6 +72,44 @@ A mobile App Project for Alphatwelve Task
 
 # 🏗️ Project Structure
 
+lib/
+│
+├── main.dart                        # App entry point
+│
+├── components/                      # Reusable UI components
+│   ├── alert_dialogue.dart          # popup modal
+│   ├── custom_toast.dart            # confirmation message
+│   └── icon_badge.dart              # Cart icon count
+│
+├── controllers/                     # GetX controllers for state management
+│   ├── btmnav_controller.dart       # Bottom navigation bar controller
+│   ├── cart_controller.dart         # Cart controller
+│   └── products_controller.dart     # Products controller
+│
+├── model/                           # Data models
+│   └── product_model.dart           # Products static array
+│
+├── utils/                           # Constants and utility classes
+│   ├── app_icons.dart               # Custom Icons
+│   ├── app_images.dart              # Custom images
+│   └── colors.dart                  # Custom colors
+│
+├── view/                            # UI-related structure
+│   ├── app_bars/                    # App bar widgets
+│   │   ├── customappbar.dart        # App bar for home page with search bar
+│   │   └── customappbar2.dart       # App bar for other pages
+│   │
+│   ├── nav_bar/                     # Bottom navigation bar widget
+│   │   └── btmnav_bar.dart    
+│   │
+│   └── pages/                       # Main screens/pages
+│       ├── cart_page.dart           # Cart Page
+│       ├── favorites.dart           # Favourites Page
+│       ├── homepage.dart            # Home Page
+│       ├── notifications.dart       # Notifications Page
+│       ├── product_details.dart     # Products Page
+│       └── profile_page.dart        # Profile Page
+
 
 
 
