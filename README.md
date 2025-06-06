@@ -115,17 +115,17 @@ lib/
 
 # 📱 Screenshots
 ## Home Page
-(/assets/screenshot/homepage.jpg)
+![HomePage](\assets\screenshot\homepage.jpg)
 ## Product Details Page
-(/assets/screenshot/productdetails.jpg)
+![Project Details](/assets/screenshot/productdetails.jpg)
 ## Favorites Page
-(/assets/screenshots/favoritespage.jpg)
+![Favorites Page](/assets/screenshot/favoritespage.jpg)
 ## Profile Page
-(/assets/screenshots/profilepage.jpg)
+![Profile Page](/assets/screenshot/profilepage.jpg)
 ## Cart Operations Page
-(/assets/screenshot/cartnoitems.jpg)
-(/assets/screenshot/cartitems.jpg)
-(/assets/screenshot/checkout.jpg)
+![Cart Screen](/assets/screenshot/cartnoitems.jpg)
+![Cart Screen](/assets/screenshot/cartitems.jpg)
+![Cart Screen](/assets/screenshot/checkout.jpg)
 
 # ✨ Features
 
