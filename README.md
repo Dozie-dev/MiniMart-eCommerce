@@ -71,7 +71,7 @@ A mobile App Project for Alphatwelve Task
 
 
 # 🏗️ Project Structure
-
+```
 lib/
 │
 ├── main.dart                        # App entry point
